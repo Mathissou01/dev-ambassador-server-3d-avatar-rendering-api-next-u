@@ -8,6 +8,7 @@ npm run dev
 ```
 
 ### Examples (DEVELLOPMENT)
+
 ### Lien des textures mapcat
 https://github.com/emmelleppi/matcaps/blob/master/PAGE-2.md
 
@@ -36,7 +37,7 @@ NECKLACE
 Leaderboard Render Example (local):
 http://localhost:3001/leaderboard/render?HEAD=Head1&NECK=Neck1&NOOSE=Noose1&EARINGS=Earings1&EAR=Ear1&EYE=Eye1&NECKLACE=Necklace1&HAIR=Hair1&GLASS=Glass1&CLOTHE=Clothe1&TEETH=Teeth1&TONGUE=Tongue1&RANK=1
 or add this after your localhost url:
-/render/leaderboard?HEAD=Head1&NECK=Neck1&NOOSE=Noose1&EAR=Ear1&EYE=Eye1&NECKLACE=Necklace1&HAIR=Hair1&GLASS=Glass1&CLOTHE=Clothe1&TEETH=Teeth1&TONGUE=Tongue1&RANK=1
+/leaderboard/render?HEAD=Head1&NECK=Neck1&NOOSE=Noose1&EAR=Ear1&EYE=Eye1&NECKLACE=Necklace1&HAIR=Hair1&GLASS=Glass1&CLOTHE=Clothe1&TEETH=Teeth1&TONGUE=Tongue1&RANK=1
 
 Production example (vercel app):
-https://dev-ambassador-userverless-3d-avatar-rendering-api-3o38w1j0e.vercel.app/render/leaderboard?HEAD=Head1&NECK=Neck1&NOOSE=Noose1&EARINGS=Earings1&EAR=Ear1&EYE=Eye1&NECKLACE=Necklace1&HAIR=Hair1&GLASS=Glass1&CLOTHE=Clothe1&TEETH=Teeth1&TONGUE=Tongue1&RANK=1
+https://dev-ambassador-server-3d-avatar-rendering-api-next-u.vercel.app/leaderboard/render?HEAD=Head1&NECK=Neck1&NOOSE=Noose1&EAR=Ear1&EYE=Eye1&NECKLACE=Necklace1&HAIR=Hair1&GLASS=Glass1&CLOTHE=Clothe1&TEETH=Teeth1&TONGUE=Tongue1&RANK=1
