@@ -15,7 +15,7 @@ type GLTFResult = GLTF & {
 export function Earings1(props: JSX.IntrinsicElements["group"]) {
     const { nodes, materials } = useGLTF("/GLB/Earings/earings1.glb") as GLTFResult;
     return (
-        <group {...props} dispose={null}>
+        <group {...props} dispose={null} castShadow={true} receiveShadow={true}>
             <mesh
                 castShadow
                 receiveShadow

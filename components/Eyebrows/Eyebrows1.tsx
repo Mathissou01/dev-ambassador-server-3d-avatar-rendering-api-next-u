@@ -15,7 +15,7 @@ type GLTFResult = GLTF & {
 export function Eyebrows1(props: JSX.IntrinsicElements['group']) {
     const { nodes, materials } = useGLTF('/GLB/Eyebrows/eyebrows1.glb') as GLTFResult
     return (
-        <group {...props} dispose={null}>
+        <group {...props} dispose={null} castShadow={true} receiveShadow={true}>
             <mesh
                 castShadow={true}
                 receiveShadow={true}

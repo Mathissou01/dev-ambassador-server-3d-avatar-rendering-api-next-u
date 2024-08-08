@@ -48,7 +48,7 @@ export function Head1(props: JSX.IntrinsicElements['group'] & { skin_color: numb
   // console.log("userDataHead", userData)
 
   return (
-    <group {...props} ref={ref} dispose={null}>
+    <group {...props} ref={ref} dispose={null} castShadow={true} receiveShadow={true}>
       <mesh castShadow={true} receiveShadow={true} geometry={nodes.head001.geometry} material={materials['SKIN FACE BODY LIGHT']} userData={nodes.head001.userData} />
     </group>
   )

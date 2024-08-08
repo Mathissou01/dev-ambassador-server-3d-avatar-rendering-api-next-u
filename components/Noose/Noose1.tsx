@@ -46,7 +46,7 @@ export function Noose1(props: JSX.IntrinsicElements['group'] & { skin_color: num
   useVariant(props.skin_color, ref, parser)
 
   return (
-    <group {...props} ref={ref} dispose={null}>
+    <group {...props} ref={ref} dispose={null} castShadow={true} receiveShadow={true}>
       <mesh castShadow receiveShadow geometry={nodes.nose000.geometry} material={materials['SKIN FACE BODY DARK-DARK']} userData={nodes.nose000.userData} />
     </group>
   )

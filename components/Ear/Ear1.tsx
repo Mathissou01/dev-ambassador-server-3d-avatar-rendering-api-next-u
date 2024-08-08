@@ -45,7 +45,7 @@ export function Ear1(props: JSX.IntrinsicElements['group'] & { skin_color: numbe
   useVariant(props.skin_color, ref, parser)
 
   return (
-    <group {...props} ref={ref} dispose={null}>
+    <group {...props} ref={ref} dispose={null} castShadow={true} receiveShadow={true}>
       <mesh castShadow receiveShadow geometry={nodes.ears000.geometry} material={materials['SKIN FACE BODY DARK-DARK']} userData={nodes.ears000.userData} />
     </group>
   )

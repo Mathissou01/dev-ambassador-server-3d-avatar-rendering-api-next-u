@@ -19,7 +19,7 @@ type GLTFResult = GLTF & {
 export default function Podium(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/GLB/Podium/Podium.glb') as GLTFResult
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} castShadow={true} receiveShadow={true}>
       <mesh castShadow={true} receiveShadow={true} geometry={nodes.LeaderboardBody.geometry} material={materials['Material0-material.001']} rotation={[Math.PI / 2, 0, 0]} />
       <mesh castShadow={true} receiveShadow={true} geometry={nodes.LeaderboardTopPlate.geometry} material={materials['Material1-material.001']} rotation={[Math.PI / 2, 0, 0]} />
       <mesh castShadow={true} receiveShadow={true} geometry={nodes.LeaderboardChiffre.geometry} material={materials['Material3-material.001']} rotation={[Math.PI / 2, 0, 0]} />

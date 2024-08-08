@@ -1,5 +1,5 @@
 'use client'
-import React, { Suspense } from 'react'
+import React, { Suspense, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Environment, Loader, PerspectiveCamera } from '@react-three/drei'
 import BodyRigged from '@/components/BodyRigged'
@@ -8,6 +8,7 @@ import styles from './leaderboard-preview.module.css'
 import studio from '@theatre/studio'
 import extension from '@theatre/r3f/dist/extension'
 import { editable as e, SheetProvider } from '@theatre/r3f'
+import { EffectComposer, DepthOfField, Bloom,Noise, Vignette } from '@react-three/postprocessing'
 import { getProject } from '@theatre/core'
 
 studio.initialize()
@@ -21,6 +22,7 @@ export default function Preview() {
   const defaultSkinSecond = 'DARK-DARK'
   const defaultAnimationThird = 'Standart.RunPose'
   const defaultSkinThird = 'YELLOW'
+  const [material, set] = useState()
 
   return (
     <>
@@ -36,14 +38,20 @@ export default function Preview() {
               fov={50}
               position={[0, 1.5, 10]}
             />
-            <ambientLight intensity={0.4} />
+            <ambientLight intensity={0.8} />
             <spotLight castShadow
-                         color='#cd7f32' decay={-1.5} intensity={0.6} angle={0.268} penumbra={1}
-                         position={[12, 7.3, 0]} shadow-bias={-0.0001} />
-            <spotLight color='#ffd700' decay={-1.5} intensity={0.6} angle={0.3} penumbra={1}
+                         color='#cd7f32' decay={-1} distance={20} intensity={0.8} angle={0.33} penumbra={1}
+                         position={[11.787, 6.121, 0]} shadow-bias={-0.0001} />
+            <spotLight color='#ffd700' decay={-1} intensity={0.8} angle={0.3} penumbra={1}
                          castShadow position={[0, 7.4, 0]} shadow-bias={-0.0001} />
-            <spotLight color='#c0c0c0' decay={-1.5} intensity={0.6} angle={0.33} penumbra={1}
-                         castShadow position={[-12, 6.6, 0]} shadow-bias={-0.0001} />
+            <spotLight color='#c0c0c0' distance={20} decay={-1} intensity={0.8} angle={0.33} penumbra={1}
+                         castShadow position={[-11.290, 4.455, 0]} shadow-bias={-0.0001} />
+              <EffectComposer disableNormalPass multisampling={8}>
+                {/*<DepthOfField focusDistance={0.5} focalLength={0.02} bokehScale={2} height={480} />*/}
+                <Bloom intensity={0.8} luminanceThreshold={0.2} luminanceSmoothing={1} height={800} />
+                <Noise opacity={0.01} />
+                <Vignette eskil={false} offset={0.1} darkness={1} />
+              </EffectComposer>
             {/* Le gagnant au centre, légèrement surélevé */}
             <group position={[0, 1.55, 0]}>
               {/*// @ts-ignore*/}
