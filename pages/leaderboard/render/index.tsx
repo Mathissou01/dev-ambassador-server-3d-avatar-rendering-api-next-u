@@ -4,6 +4,7 @@ import { Caustics, Stage } from '@react-three/drei'
 import { Suspense } from 'react'
 import { useRouter } from 'next/router'
 import { Head1 } from '@/components/Head/Head1'
+import { Hair1 } from '@/components/Hair/Hair1'
 // import { Head2 } from '../components/Head2';
 // import { Head3 } from '../components/Head3';
 // import { Head4 } from '../components/Head4';
@@ -31,6 +32,7 @@ import { Earings1 } from '@/components/Earings/Earings1'
 // import { Necklace2 } from '../components/Necklace2';
 import { Necklace1 } from '@/components/Necklace/Necklace1'
 import { Glass1 } from '@/components/Glass/Glass1'
+import { Eyebrow1 } from '@/components/Eyebrow/Eyebrow1'
 // import { Glass2 } from '../components/Glass2';
 // import { Teeth1 } from '../components/Teeth1';
 // import { Tongue1 } from '../components/Tongue1';
@@ -86,7 +88,9 @@ const renderComponent = (componentName: string, props: ComponentProps) => {
     Necklace1: (props) => <Necklace1 {...props} />,
     // Necklace2: (props) => <Necklace2 {...props} />,
     /* @ts-ignore */
-    Glass1: (props) => <Glass1 {...props} />
+    Glass1: (props) => <Glass1 {...props} />,
+    Hair1: (props) => <Hair1 {...props} />,
+    Eyebrow1: (props) => <Eyebrow1 {...props} />
     // Glass2: (props) => <Glass2 {...props} />,
     // Tongue1: (props) => <Tongue1 {...props} />,
     // Teeth1: (props) => <Teeth1 {...props} />,
@@ -99,9 +103,9 @@ const renderComponent = (componentName: string, props: ComponentProps) => {
 
 export default function ViewerPage() {
   const router = useRouter()
-  const { HEAD, NECK, NOOSE, EAR, EYE, NECKLACE, HAIR, GLASS, CLOTHE, TEETH, TONGUE } = router.query
+  const { HEAD, NECK, NOOSE, EAR, EYE, NECKLACE, HAIR, GLASS, CLOTHE, TEETH, TONGUE, EYEBROW } = router.query
 
-  if (!HEAD || !NECK || !NOOSE || !EAR || !EYE || !NECKLACE || !HAIR || !GLASS || !CLOTHE || !TEETH || !TONGUE) {
+  if (!HEAD || !NECK || !NOOSE || !EAR || !EYE || !NECKLACE || !HAIR || !GLASS || !CLOTHE || !TEETH || !TONGUE || !EYEBROW) {
     return (
       <>
         <p>Oops! It seems that some essential components are missing from the URL. Please provide the following components:</p>
@@ -118,6 +122,7 @@ export default function ViewerPage() {
           {!CLOTHE && <li>Clothe</li>}
           {!TEETH && <li>Teeth</li>}
           {!TONGUE && <li>Tongue</li>}
+          {!EYEBROW && <li>Eyebrow</li>}
         </ul>
       </>
     )
@@ -144,6 +149,7 @@ export default function ViewerPage() {
           {renderComponent(CLOTHE as string, componentProps)}
           {renderComponent(HAIR as string, componentProps)}
           {renderComponent(GLASS as string, componentProps)}
+          {renderComponent(EYEBROW as string, componentProps)}
         </Stage>
       </Suspense>
     </Canvas>

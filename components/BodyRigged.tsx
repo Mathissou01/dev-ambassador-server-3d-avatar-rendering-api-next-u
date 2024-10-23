@@ -10,8 +10,10 @@ import { Earings1 } from '@/components/Earings/Earings1'
 import { Ear1 } from '@/components/Ear/Ear1'
 import { Noose1 } from '@/components/Noose/Noose1'
 import { Hair1 } from '@/components/Hair/Hair1'
-import { Eyebrows1 } from '@/components/Eyebrows/Eyebrows1'
+import { Eyebrow1 } from '@/components/Eyebrow/Eyebrow1'
 import { Glass1 } from '@/components/Glass/Glass1'
+import { Tongue1 } from '@/components/Tongue/Tongue1'
+import { Teeth1 } from '@/components/Teeth/Teeth1'
 import { useTweaks } from 'use-tweaks'
 
 type ActionName =
@@ -83,9 +85,7 @@ function useVariant(variantIndex: number, ref: React.RefObject<THREE.Group>, par
       const meshVariantDef = object.userData.gltfExtensions['KHR_materials_variants']
       if (!meshVariantDef) return
       if (!object.userData.originalMaterial) object.userData.originalMaterial = object.material
-      const mapping = meshVariantDef.mappings.find((mapping: any) =>
-        mapping.variants.includes(variantIndex)
-      )
+      const mapping = meshVariantDef.mappings.find((mapping: any) => mapping.variants.includes(variantIndex))
       if (mapping) object.material = await parser.getDependency('material', mapping.material)
     })
   }, [variantIndex, parser, ref])
@@ -98,7 +98,7 @@ interface BodyRiggedProps {
 }
 
 export default function BodyRigged({ defaultAnimation, defaultSkin }: BodyRiggedProps) {
-  const group = useRef<THREE.Group | null>(null);
+  const group = useRef<THREE.Group | null>(null)
   const { scene, animations, parser } = useGLTF('/GLB/Body/Body.glb') as GLTFResult
   const clone = useMemo(() => SkeletonUtils.clone(scene), [scene])
   const { nodes, materials } = useGraph(clone)
@@ -174,10 +174,11 @@ export default function BodyRigged({ defaultAnimation, defaultSkin }: BodyRigged
                         <Head1 skin_color={skin_color} />
                         <Ear1 skin_color={skin_color} />
                         <Noose1 skin_color={skin_color} />
-                        {/* <Teeth1 /> */}
+                        <Tongue1 />
                         <Earings1 />
-                        <Eyebrows1 />
+                        <Eyebrow1 />
                         <Glass1 />
+                        <Teeth1 />
                       </group>
                     </primitive>
                     <primitive object={nodes.LeftShoulder} name="LeftShoulder" position={[0, 21.463, 0]} rotation={[-1.45, 0.363, -1.565]}>
